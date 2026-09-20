@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Открываем Telegram...</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #ffffff;
+        }
+
+        .text {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="text">Открываем Telegram...</div>
+
+<script>
+    const slug = "thY8s5DLNDky";
+
+    // Прямая ссылка в приложение Telegram
+    const appLink = "tg://message?slug=" + slug;
+
+    // Запасная HTTPS-ссылка
+    const webLink = "https://t.me/m/" + slug;
+
+    // Пытаемся сразу открыть Telegram
+    window.location.href = appLink;
+
+    // Если приложение не перехватило ссылку —
+    // переходим на официальный t.me
+    setTimeout(function () {
+        if (!document.hidden) {
+            window.location.href = webLink;
+        }
+    }, 1500);
+</script>
+
+</body>
+</html>
